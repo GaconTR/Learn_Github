@@ -1,0 +1,38 @@
+1. git --help: trợ giúp, hướng dẫn
+2. git status: hiện thị trạng thái kho lưu trữ
+3. git log: hiển thị lịch sự commit
+4. git init [repo name]: tạo ra 1 kho lưu trữ
+5. git clone [repo name] [clone name]: tạo ra bản sao để liên kết với repo
+6. git config -l: xem cấu hình hiện tại
+7. git config -l [--scope] [option name] [value]:
+   scope: --system --> tất cả người dùng
+	  --global --> liên quan đến repo(s)
+	  --local  --> liên quan đến 1 repo
+8. git add [file name(s)]: thêm tệp vào index
+9. git add .             : thêm tệp (tất cả)
+10. git commit -m "Nội dụng" : tạo ra 1 commit mới -> repo
+11. git status: sự khác biệt giữa 3 cây: working directory, index, Head
+12. git diff: so sánh với commit cuối cùng
+13. git log: hiện thị lịch sử
+14 touch .gitignore: tạo ra file, khi add file hoặc thư mục nào đó vào file: ".gitignore" thì khi commit -> Git sẽ bỏ qua file hoặc thư mục đó 
+	VD: Khi đưa vào tập tin .gitignore: + echo "tên file, thư mục" > .gitignore
+					    + echo "*.Duôi file(txt)" > .gitignore  -> toàn bộ file có đuôi vd(txt) sẽ được bỏ qua.
+15. git init --bare "Name Central repo": lệnh này tạo ra 1 khu lưu trữ dữ liệu trung tâm, là nơi lưu trữ dữ liệu và có thể được cập nhập bởi nhiều người
+16. git clone [repo name(vd: Name Central repo)] [name clone]: sao chép và liên kết với Central repo
+17. git fetch: Lấy các thông tin commit mới từ Central repo
+18. git pull: lấy dữ liệu từ Central repo về local repo
+19. git push: đẩy dữ liệu lên Central repo (dữ liệu cần dc commit trước)
+20. git checkout [commit -hash code] : câu lệnh này giúp quay lại phần commit có mã hash code và tiếp tục làm việc từ đó
+21. git branch -l: kiểm tra vị trí nhánh hiện tại
+22. git branch "tên nhánh": tạo ra 1 nhánh mới
+23. trong nhánh A: git merge B: lệnh này ý nghĩa là đứa tất cả commit nhánh B vào Nhánh A (gộp lại thành 1 nhánh duy nhất). A1 A2 B1 A3 A4 B2
+24. git rebase: lệnh này gộp các nhánh lại theo lần lượt A1 A2 A3 A4 B1 B2
+	git rebase --continue
+	git rebase --skip
+25. git branch -d "tên nhánh": xóa nhánh "tên nhánh"
+26. git push origin -d "tên nhanh": xóa nhánh trong CentralRepo
+27. git reset --soft <commit id>: di chuyển HEAD về vị trị commit cần, lệnh này thì k gây thay đổi dữ liệu và trạng thái của file
+    git reset <commit id>: di chuyển HEAD về vị trí commit, vẫn giữ nguyên file thưng thay đổi trạng thái của file cần add . và commit again
+    git reset --hard <commit id>: di chuyển HEAD về vị trí commit và xóa toàn bộ dữ liệu và trạng thái commit trước đó
+28. git revert <id commit>: khi lệnh này được thực hiện các file sẽ quay lại trạng thái trước commit này VD: lần commit lần lượt A B C khi revert B -> sẽ quay về A.
+29. git remote add origin <đường dẫn github>: liên kết để đẩy code lên github.
